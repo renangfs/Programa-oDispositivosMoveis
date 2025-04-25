@@ -1,14 +1,10 @@
 import { Text, View, StyleSheet, Button, TextInput } from 'react-native';
 import React, { useState } from 'react';
 
-export default function App() {
-  // Duas variáveis: peso e altura, iniciando em 0
+export default function App() {// Função principal do App
+  
   const [peso, setPeso] = useState('0');
   const [altura, setAltura] = useState('0');
-
-  const [pesoFinal, setPesoFinal] = useState('');
-  const [alturaFinal, setAlturaFinal] = useState('');
-  
   const [resultado, setResultado] = useState('');
 
   const Calcular = () => {
@@ -17,13 +13,10 @@ export default function App() {
 
     if (!pesoNum || !alturaNum) {
       setResultado('Por favor, insira valores válidos.');
-    return;
+      return;
     }
-  
-    const imc = pesoNum / (alturaNum * alturaNum);
 
-    setPesoFinal(peso);
-    setAlturaFinal(altura);
+    const imc = pesoNum / (alturaNum * alturaNum);
     setResultado(imc.toFixed(2));
   };
 
@@ -47,8 +40,8 @@ export default function App() {
 
       <Button title="Calcular" onPress={Calcular} />
 
-      <Text>Peso informado: {pesoFinal} kg</Text>
-      <Text>Altura informada: {alturaFinal} m</Text>
+      <Text>Peso informado: {peso} kg</Text>
+      <Text>Altura informada: {altura} m</Text>
       <Text>Resultado IMC: {resultado}</Text>
     </View>
   );
